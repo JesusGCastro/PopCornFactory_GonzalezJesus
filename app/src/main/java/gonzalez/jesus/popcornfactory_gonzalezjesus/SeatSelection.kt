@@ -1,7 +1,10 @@
 package gonzalez.jesus.popcornfactory_gonzalezjesus
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
+import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
@@ -24,10 +27,6 @@ class SeatSelection : AppCompatActivity() {
         if (bundle != null){
             title.setText(bundle.getString("name"))
             posMovie = bundle.getInt("id")
-        }
-
-        confirm.setOnClickListener {
-            Toast.makeText(this, "Enjoy the movie", Toast.LENGTH_LONG).show()
         }
 
         val row1: RadioGroup =  findViewById(R.id.row1)
@@ -73,6 +72,36 @@ class SeatSelection : AppCompatActivity() {
 
                 row4.check(checkedId)
             }
+        }
+
+        confirm.setOnClickListener {
+            val nombreCliente = findViewById<EditText>(R.id.nombreCliente).text.toString()
+
+            if (nombreCliente.isBlank()) {
+                Toast.makeText(this, "Por favor, ingrese su nombre", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val intent = Intent(this, ResumenActivity::class.java)
+            intent.putExtra("name", title.text.toString()) // Nombre de la película
+            intent.putExtra("cliente", nombreCliente) // Nombre del usuario
+
+            val asientoSeleccionado = when {
+                row1.checkedRadioButtonId != -1 -> findViewById<RadioButton>(row1.checkedRadioButtonId).text.toString()
+                row2.checkedRadioButtonId != -1 -> findViewById<RadioButton>(row2.checkedRadioButtonId).text.toString()
+                row3.checkedRadioButtonId != -1 -> findViewById<RadioButton>(row3.checkedRadioButtonId).text.toString()
+                row4.checkedRadioButtonId != -1 -> findViewById<RadioButton>(row4.checkedRadioButtonId).text.toString()
+                else -> "Ninguno"
+            }
+
+            if (asientoSeleccionado == "Ninguno") {
+                Toast.makeText(this, "Por favor, seleccione un asiento", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            intent.putExtra("seat", asientoSeleccionado)
+            Toast.makeText(this, "Enjoy your movie!!", Toast.LENGTH_LONG).show()
+            startActivity(intent)
         }
     }
 }

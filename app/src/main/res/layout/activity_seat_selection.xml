@@ -318,17 +318,42 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:background="@color/grisClaro"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="15dp"
         android:layout_marginHorizontal="50dp"
         android:text="Screen"
         android:textSize="23sp"
         android:textStyle="italic"/>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:text="Ingrese su nombre:"
+            android:textColor="@color/letra"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/nombreCliente"
+            android:layout_width="190dp"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:textColor="@color/letra"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="70dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:paddingHorizontal="@dimen/hpRadioGroup"
         android:orientation="horizontal"
         >
@@ -386,10 +411,11 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/yellow"
         android:background="@drawable/round_button"
         android:textColor="@color/black_background"
         android:text="Confirm"
-        android:layout_marginTop="20sp"
+        android:layout_marginTop="15sp"
         android:layout_gravity="center_horizontal"
         android:paddingHorizontal="70dp"
         android:id="@+id/confirm"/>
