@@ -2,21 +2,39 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black_background"
     tools:context=".MainActivity">
 
-    <GridView
-        android:id="@+id/gridview"
-        android:numColumns="3"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="461dp"
+        android:src="@drawable/popcorn"
+        android:scaleType="fitXY"
+        />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_marginTop="25dp"
+        android:textColor="@android:color/white"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/welcome_text"
+        android:textAlignment="center"
+        />
 
-
-    </GridView>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="219dp"
+        android:layout_height="35dp"
+        android:text="@string/button_start"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_button"
+        android:textColor="@color/black_background"
+        android:layout_gravity="center_horizontal"
+        />
 
 </LinearLayout>
