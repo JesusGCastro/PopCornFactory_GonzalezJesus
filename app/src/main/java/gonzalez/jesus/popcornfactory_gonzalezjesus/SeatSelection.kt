@@ -27,8 +27,6 @@ class SeatSelection : AppCompatActivity() {
         }
 
         confirm.setOnClickListener {
-            //TODO añadir logica para reservar el lugar seleccionado por el usuario salud2
-            // Hacer una nueva actividad donde se vea el resumen de la compra es decir que se agregue el nombre del cliente y se vea el asiento que se selecciono
             Toast.makeText(this, "Enjoy the movie", Toast.LENGTH_LONG).show()
         }
 
